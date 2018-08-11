@@ -1,0 +1,10 @@
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.Form1.resources
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.Properties.Resources.resources
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.csproj.GenerateResource.cache
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.csproj.CoreCompileInputs.cache
+C:\БД\abiturient_forms\abiturient_forms\bin\Debug\abiturient_forms.exe.config
+C:\БД\abiturient_forms\abiturient_forms\bin\Debug\abiturient_forms.exe
+C:\БД\abiturient_forms\abiturient_forms\bin\Debug\abiturient_forms.pdb
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.exe
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.pdb
+C:\БД\abiturient_forms\abiturient_forms\obj\Debug\abiturient_forms.csprojResolveAssemblyReference.cache
