@@ -292,26 +292,71 @@ namespace abiturient_forms
         {
             int i = treeView2.SelectedNode.Index;
             //поменять приоритеты
-            UserDirection userDirection_Swap = userDirections[i];
-            userDirections.RemoveAt(i);
+            UserDirection userDirection_Swap;
+            UserProfile userProfile_Swap;
 
-            if (key == "-")
+            /*  userDirections[i].direction_priority--;
+              userDirections[i - 1].direction_priority++;
+              userDirections.RemoveAt(i);*/
+
+            if (treeView2.SelectedNode.Parent == null)
             {
-                userDirections.Insert(i - 1, userDirection_Swap);
-                treeView2.Nodes.Clear();
-                Add_treeview2();
-                treeView2.SelectedNode = treeView2.Nodes[i - 1];
-            }
+                userDirection_Swap = userDirections[i];
+                if (key == "-")
+                {
+                    userDirections[i].direction_priority--;
+                    userDirections[i - 1].direction_priority++;
+                    userDirections.RemoveAt(i);
+                    userDirections.Insert(i - 1, userDirection_Swap);
+                    treeView2.Nodes.Clear();
+                    Add_treeview2();
+                    treeView2.SelectedNode = treeView2.Nodes[i - 1];
+                    treeView2.Select();
+                }
 
-            if (key == "+")
+                if (key == "+")
+                {
+                    userDirections[i].direction_priority++;
+                    userDirections[i + 1].direction_priority--;
+                    userDirections.RemoveAt(i);
+                    userDirections.Insert(i + 1, userDirection_Swap);
+                    treeView2.Nodes.Clear();
+                    Add_treeview2();
+                    treeView2.SelectedNode = treeView2.Nodes[i + 1];
+                    treeView2.Select();
+                }
+
+            }
+            else
             {
-                userDirections.Insert(i + 1, userDirection_Swap);
-                treeView2.Nodes.Clear();
-                Add_treeview2();
-                treeView2.SelectedNode = treeView2.Nodes[i + 1];
+                userProfile_Swap = userDirections[treeView2.SelectedNode.Parent.Index].userProfiles[i];
+                int parrent = treeView2.SelectedNode.Parent.Index;
+                if (key == "-")
+                {
+                    userDirections[parrent].userProfiles[i].profile_priority--;
+                    userDirections[parrent].userProfiles[i - 1].profile_priority++;
+                    userDirections[parrent].userProfiles.RemoveAt(i);
+                    userDirections[parrent].userProfiles.Insert(i-1, userProfile_Swap);
+                    treeView2.Nodes.Clear();
+                    Add_treeview2();
+                    treeView2.SelectedNode = treeView2.Nodes[parrent].Nodes[i - 1];
+                    treeView2.Select();
+                }
+
+                if (key == "+")
+                {
+                    userDirections[parrent].userProfiles[i].profile_priority++;
+                    userDirections[parrent].userProfiles[i + 1].profile_priority--;
+                    userDirections[parrent].userProfiles.RemoveAt(i);
+                    userDirections[parrent].userProfiles.Insert(i + 1, userProfile_Swap);
+                    treeView2.Nodes.Clear();
+                    Add_treeview2();
+                    treeView2.SelectedNode = treeView2.Nodes[parrent].Nodes[i + 1];
+                    treeView2.Select();
+                }
+                
+                
             }
-
-
         }
     }
 }
