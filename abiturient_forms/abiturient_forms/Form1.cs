@@ -358,6 +358,33 @@ namespace abiturient_forms
                 
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string query = "DELETE FROM user_direction WHERE id_user = " + people[comboBox1.SelectedIndex].id_user;
+            OleDbCommand command = new OleDbCommand(query, myConnetion);
+            command.ExecuteNonQuery();
+
+            query = "DELETE FROM user_profile WHERE id_user = " + people[comboBox1.SelectedIndex].id_user;
+            command = new OleDbCommand(query, myConnetion);
+            command.ExecuteNonQuery();
+
+
+            for(int i = 0; i<userDirections.Count; i++)
+            {
+                query = "INSERT INTO user_direction (id_user, id_direction, direction_priority) VALUES (" + userDirections[i].id_user + "," + userDirections[i].id_direction + ", " + userDirections[i].direction_priority + ")";
+                command = new OleDbCommand(query, myConnetion);
+                command.ExecuteNonQuery();
+                for(int k = 0; k<userDirections[i].userProfiles.Count; k++)
+                {
+                    query = "INSERT INTO user_profile (id_user, id_profile, profile_priority) VALUES (" + userDirections[i].userProfiles[k].id_user + "," + userDirections[i].userProfiles[k].id_profile + ", " + userDirections[i].userProfiles[k].profile_priority + ")";
+                    command = new OleDbCommand(query, myConnetion);
+                    command.ExecuteNonQuery();
+                }
+            }
+
+
+        }
     }
 }
 
