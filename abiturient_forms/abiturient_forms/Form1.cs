@@ -24,7 +24,6 @@ namespace abiturient_forms
             myConnetion.Open();
             add_ComboBox();
             add_TreeView();
-            button1.Enabled = true;
         }
 
         List<User> people = new List<User>();
@@ -32,7 +31,14 @@ namespace abiturient_forms
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            if(comboBox1.SelectedItem != null && treeView1.SelectedNode.Parent == null)
+            {
+                button1.Enabled = true;
+            }
+            else
+            {
+                button1.Enabled = false;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
