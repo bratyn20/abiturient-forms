@@ -171,6 +171,10 @@ namespace abiturient_forms
         List<UserDirection> userDirections = new List<UserDirection>();
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button2.Enabled = false;
+            button5.Enabled = true;
             // MessageBox.Show(people[comboBox1.SelectedIndex].user_name);
             treeView2.Nodes.Clear();
             string query = "SELECT id_user, id_direction, direction_priority FROM [user_direction] WHERE id_user =" + people[comboBox1.SelectedIndex].id_user + " ORDER BY direction_priority";
@@ -390,6 +394,26 @@ namespace abiturient_forms
             }
 
 
+        }
+
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            button3.Enabled = true;
+            button4.Enabled = true;
+         //   button2.Enabled = true;
+            if (treeView2.SelectedNode.Parent == null)
+            {
+                button2.Enabled = true;
+            }
+            else
+            {
+                button2.Enabled = false;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
