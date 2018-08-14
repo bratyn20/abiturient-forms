@@ -420,7 +420,7 @@ namespace abiturient_forms
             }
             else
             {
-                if(treeView2.SelectedNode.Index + 1 == treeView2.Nodes[treeView2.SelectedNode.Index].Nodes.Count)
+                if(treeView2.SelectedNode.Index + 1 == treeView2.Nodes[treeView2.SelectedNode.Parent.Index].Nodes.Count)
                 {
                     button4.Enabled = false;
                 }
