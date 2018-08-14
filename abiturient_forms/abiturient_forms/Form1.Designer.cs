@@ -46,7 +46,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 36);
+            this.comboBox1.Location = new System.Drawing.Point(212, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(231, 21);
             this.comboBox1.TabIndex = 0;
@@ -101,22 +101,22 @@
             // button4
             // 
             this.button4.Enabled = false;
+            this.button4.Image = global::abiturient_forms.Properties.Resources.arrow_down_grey;
             this.button4.Location = new System.Drawing.Point(279, 249);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(34, 24);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Вниз";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.Enabled = false;
+            this.button3.Image = global::abiturient_forms.Properties.Resources.arrow_up_grey;
             this.button3.Location = new System.Drawing.Point(279, 219);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(34, 24);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Вверх";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -142,7 +142,8 @@
             // button5
             // 
             this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(564, 345);
+            this.button5.ForeColor = System.Drawing.Color.DarkGreen;
+            this.button5.Location = new System.Drawing.Point(517, 345);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 3;
@@ -152,9 +153,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(629, 1);
+            this.button6.ForeColor = System.Drawing.Color.Crimson;
+            this.button6.Location = new System.Drawing.Point(372, 345);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(10, 10);
+            this.button6.Size = new System.Drawing.Size(71, 23);
             this.button6.TabIndex = 4;
             this.button6.Text = "Отчистить";
             this.button6.UseVisualStyleBackColor = true;

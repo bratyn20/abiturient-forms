@@ -142,29 +142,51 @@ namespace abiturient_forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-              TreeNode node = treeView1.SelectedNode;
+            TreeNode node = treeView1.SelectedNode;
             //  string name = node.Text;
             //treeView2.Nodes.Add(treeView1.SelectedNode.Text + treeView1.SelectedNode.Index);
             // int i = treeView2.GetNodeCount(false);
             // int i = node.GetNodeCount(false);
             // int k = node.Index;
             List<UserProfile> luserProfiles = new List<UserProfile>();
-            for (int i = 0; i < directions[node.Index].profiles.Count; i++)
+            bool key = true;
+            for (int k = 0; k < treeView2.Nodes.Count; k++)
             {
-                luserProfiles.Add(new UserProfile() {id_user = people[comboBox1.SelectedIndex].id_user,
-                                                    id_profile = directions[node.Index].profiles[i].id_profile,
-                                                    profile_priority = i + 1});
+                if (treeView2.Nodes[k].Text == treeView1.SelectedNode.Text)
+                {
+                    MessageBox.Show("Уже добавлено");
+                    key = false;
+                    break;
+                }
+
             }
 
+            if (key == true)
+            {
 
-            userDirections.Add(new UserDirection() {id_user = people[comboBox1.SelectedIndex].id_user,
-                                                    id_direction = directions[node.Index].id_direction,
-                                                    direction_priority = userDirections.Count +1,
-                                                    userProfiles = luserProfiles
-                                                    });
 
-            treeView2.Nodes.Clear();
-            Add_treeview2();
+                for (int i = 0; i < directions[node.Index].profiles.Count; i++)
+                {
+                    luserProfiles.Add(new UserProfile()
+                    {
+                        id_user = people[comboBox1.SelectedIndex].id_user,
+                        id_profile = directions[node.Index].profiles[i].id_profile,
+                        profile_priority = i + 1
+                    });
+                }
+
+
+                userDirections.Add(new UserDirection()
+                {
+                    id_user = people[comboBox1.SelectedIndex].id_user,
+                    id_direction = directions[node.Index].id_direction,
+                    direction_priority = userDirections.Count + 1,
+                    userProfiles = luserProfiles
+                });
+
+                treeView2.Nodes.Clear();
+                Add_treeview2();
+            }
         }
 
 
@@ -445,7 +467,8 @@ namespace abiturient_forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+            userDirections.Clear();
+            treeView2.Nodes.Clear();
         }
     }
 }
