@@ -398,8 +398,40 @@ namespace abiturient_forms
 
         private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            button3.Enabled = true;
-            button4.Enabled = true;
+            if(treeView2.SelectedNode.Index == 0)
+            {
+                button3.Enabled = false;
+            }
+            else
+            {
+                button3.Enabled = true;
+            }
+
+            if (treeView2.SelectedNode.Parent == null)
+            {
+                if (treeView2.SelectedNode.Index + 1 == treeView2.Nodes.Count)
+                {
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    button4.Enabled = true;
+                }
+            }
+            else
+            {
+                if(treeView2.SelectedNode.Index + 1 == treeView2.Nodes[treeView2.SelectedNode.Index].Nodes.Count)
+                {
+                    button4.Enabled = false;
+                }
+                else
+                {
+                    button4.Enabled = true;
+                }
+            }
+                
+            //button3.Enabled = true;
+          //  button4.Enabled = true;
          //   button2.Enabled = true;
             if (treeView2.SelectedNode.Parent == null)
             {
